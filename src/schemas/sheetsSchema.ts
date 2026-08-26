@@ -1,4 +1,4 @@
-const updateColumnGSchema = {
+export const updateColumnGSchema = {
   body: {
     type: 'object',
     required: ['uuid', 'count'],
@@ -18,7 +18,7 @@ const updateColumnGSchema = {
   },
 };
 
-const fillFormSchema = {
+export const fillFormSchema = {
   body: {
     type: 'object',
     required: ['name', 'phone'],
@@ -39,7 +39,7 @@ const fillFormSchema = {
   },
 };
 
-const getRowSchema = {
+export const getRowSchema = {
   params: {
     type: 'object',
     required: ['uuid'],
@@ -68,10 +68,4 @@ const getRowSchema = {
       },
     },
   },
-};
-
-module.exports = {
-  updateColumnGSchema,
-  fillFormSchema,
-  getRowSchema,
 };

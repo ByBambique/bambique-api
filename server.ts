@@ -1,5 +1,5 @@
-const buildApp = require('./src/app');
-const env = require('./src/config/env');
+import buildApp from './src/app';
+import env from './src/config/env';
 
 const app = buildApp({ logger: true });
 
@@ -14,7 +14,7 @@ const start = async () => {
 };
 
 // Graceful shutdown
-const listeners = ['SIGINT', 'SIGTERM'];
+const listeners: NodeJS.Signals[] = ['SIGINT', 'SIGTERM'];
 listeners.forEach((signal) => {
   process.on(signal, async () => {
     app.log.info(`Received ${signal}, shutting down gracefully...`);

@@ -1,4 +1,4 @@
-// // 
+// //
 
 // const express = require('express');
 // const { google } = require('googleapis');
@@ -70,7 +70,7 @@
 
 //   // Configurar las solicitudes
 //   const requests = [];
-  
+
 //   // Cambiar el título de la hoja de cálculo
 //   requests.push({
 //     updateSpreadsheetProperties: {
@@ -117,9 +117,8 @@
 //   .then(response => console.log('Batch update completed:', response.data))
 //   .catch(error => console.error('Batch update failed:', error));
 
-
-const {GoogleAuth} = require('google-auth-library');
-const {google} = require('googleapis');
+const { GoogleAuth } = require('google-auth-library');
+const { google } = require('googleapis');
 const path = require('path');
 require('dotenv').config();
 
@@ -131,7 +130,7 @@ const auth = new GoogleAuth({
 
 // Función para actualizar la hoja de cálculo
 async function batchUpdate(spreadsheetId, title, find, replacement) {
-  const service = google.sheets({version: 'v4', auth});
+  const service = google.sheets({ version: 'v4', auth });
 
   // Configurar las solicitudes
   const requests = [];
@@ -155,7 +154,7 @@ async function batchUpdate(spreadsheetId, title, find, replacement) {
     },
   });
 
-  const batchUpdateRequest = {requests};
+  const batchUpdateRequest = { requests };
 
   try {
     const response = await service.spreadsheets.batchUpdate({
@@ -174,7 +173,7 @@ async function batchUpdate(spreadsheetId, title, find, replacement) {
 
 // Función para añadir una fila a la hoja de cálculo
 async function appendRow(spreadsheetId, range, values) {
-  const service = google.sheets({version: 'v4', auth});
+  const service = google.sheets({ version: 'v4', auth });
 
   const resource = {
     values: [values],

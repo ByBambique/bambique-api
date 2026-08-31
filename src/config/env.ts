@@ -5,6 +5,7 @@ dotenv.config();
 
 export interface Config {
   port: number;
+  databaseUrl: string;
   googleSheetId: string;
   googleSheetId2?: string;
   keyFilePath: string;
@@ -13,6 +14,7 @@ export interface Config {
 
 export const env: Config = {
   port: parseInt(process.env.PORT || '3001', 10),
+  databaseUrl: process.env.DATABASE_URL || '',
   googleSheetId: process.env.GOOGLE_SHEET_ID || '',
   googleSheetId2: process.env.GOOGLE_SHEET_ID_2,
   keyFilePath: path.join(__dirname, '../../credentials.json'),

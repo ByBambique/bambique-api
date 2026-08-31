@@ -9,6 +9,7 @@ module.exports = [
       'dist/**',
       'credentials.json',
       'back todos.js',
+      'index.js',
       'eslint.config.js',
     ],
   },

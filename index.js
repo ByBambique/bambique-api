@@ -22,8 +22,8 @@ async function authenticate() {
 
 // // Función para añadir una fila a la hoja de cálculo
 async function appendRow(auth, spreadsheetId, range, values) {
-  const service = google.sheets({version: 'v4', auth});
-  console.log('DEBUG: spreadsheetId:', spreadsheetId, 'range:', range, 'values:', values)
+  const service = google.sheets({ version: 'v4', auth });
+  console.log('DEBUG: spreadsheetId:', spreadsheetId, 'range:', range, 'values:', values);
 
   const resource = {
     values: [values],

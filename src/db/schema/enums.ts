@@ -49,3 +49,5 @@ export const musicGenreEnum = pgEnum('music_genre', [
   'house',
   'other',
 ]);
+
+export const userRoleEnum = pgEnum('user_role', ['super_admin', 'admin', 'organizer', 'user']);

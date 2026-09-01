@@ -1,10 +1,14 @@
 import buildApp from './src/app';
 import env from './src/config/env';
+import { seedSuperAdmin } from './src/db/seeds/superAdmin';
 
 const app = buildApp({ logger: true });
 
 const start = async () => {
   try {
+    if (env.databaseUrl) {
+      await seedSuperAdmin();
+    }
     await app.listen({ port: env.port, host: '0.0.0.0' });
     app.log.info(`Server running on port ${env.port}`);
   } catch (err) {

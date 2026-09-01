@@ -1,8 +1,10 @@
 import Fastify, { FastifyInstance } from 'fastify';
 import cors from '@fastify/cors';
 import googleSheetsPlugin from './plugins/googleSheetsPlugin';
+import authPlugin from './plugins/authPlugin';
 import guestsRoutes from './routes/guests.routes';
 import formRoutes from './routes/form.routes';
+import authRoutes from './routes/auth.routes';
 
 export interface BuildAppOptions {
   logger?: boolean;
@@ -25,8 +27,10 @@ export function buildApp(opts: BuildAppOptions = {}): FastifyInstance {
 
   // Register custom plugins
   fastify.register(googleSheetsPlugin);
+  fastify.register(authPlugin);
 
   // Register API routes
+  fastify.register(authRoutes);
   fastify.register(guestsRoutes);
   fastify.register(formRoutes);
 

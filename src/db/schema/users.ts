@@ -1,13 +1,16 @@
 import { pgTable, uuid, varchar, text, integer, timestamp } from 'drizzle-orm/pg-core';
-import { genderEnum } from './enums';
+import { genderEnum, userRoleEnum } from './enums';
 
 export const users = pgTable('users', {
   id: uuid('id').defaultRandom().primaryKey(),
   name: varchar('name', { length: 255 }).notNull(),
   lastName: varchar('last_name', { length: 255 }),
   email: varchar('email', { length: 255 }).notNull().unique(),
-  password: text('password').notNull(),
+  password: text('password'), // Nullable para usuarios que inicien con Google OAuth
+  role: userRoleEnum('role').default('user').notNull(),
   gender: genderEnum('gender'), // opcional (male, female, other)
+  googleId: varchar('google_id', { length: 255 }).unique(),
+  avatarUrl: text('avatar_url'),
   nitCi: varchar('nit_ci', { length: 50 }),
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),

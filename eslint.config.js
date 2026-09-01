@@ -7,6 +7,7 @@ module.exports = [
     ignores: [
       'node_modules/**',
       'dist/**',
+      'drizzle/**',
       'credentials.json',
       'back todos.js',
       'index.js',

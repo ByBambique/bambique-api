@@ -1,5 +1,6 @@
 node_modules
 dist
+drizzle
 package-lock.json
 credentials.json
 .env
